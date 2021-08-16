@@ -1,0 +1,8 @@
+<h1>Our restauants</h1>
+<%= @restaurants.each do |element|%>
+  <ul>
+    <li class="card "> <%= link_to element.name, restaurant_path(element) %> <%= "- #{element.category} "%>  <small> <%= "#{element.address}/#{element.phone_number}" %> </small> </li>
+  </ul>
+  <% end %>
+
+

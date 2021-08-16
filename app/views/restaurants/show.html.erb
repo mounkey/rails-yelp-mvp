@@ -1,0 +1,21 @@
+<div class= container>
+  <h1>Restaurants: <%= @restaurant.name %></h1>
+  <div class="row textright">
+    <small> <%= "Address: #{@restaurant.address}/ Phone:#{@restaurant.phone_number}"%><br/>
+  </div>
+ <div class="textleft">
+    <%= "Category : #{@restaurant.category}" %>
+ </div>
+ <br/>
+ <h1>Review</h1>
+  <div class=" text_right">
+      <ul>
+        <% @restaurant.reviews.each do |r|  %>
+        <li class="card" >
+          <%= r.content%><br/><small><%= "Rating: #{r.rating} " %> <br/> <%= link_to  "Back", restaurants_path %> / <%= link_to "Write a new Review", new_restaurant_review_path(r)%>
+        </li>
+        <% end %>
+      </ul>
+  </div>
+</div>
+
