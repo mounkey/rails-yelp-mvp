@@ -7,12 +7,17 @@
     <%= "Category : #{@restaurant.category}" %>
  </div>
  <br/>
+  <%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating %>
+  <%= f.submit class: "btn btn-primary" %> 
+<% end %>
  <h1>Review</h1>
   <div class=" text_right">
       <ul>
         <% @restaurant.reviews.each do |r|  %>
         <li class="card" >
-          <%= r.content%><br/><small><%= "Rating: #{r.rating} " %> <br/> <%= link_to  "Back", restaurants_path %> / <%= link_to "Write a new Review", new_restaurant_review_path(r)%>
+          <%= r.content%><br/><small><%= "Rating: #{r.rating} " %> <br/> <%= link_to  "Back", restaurants_path %>
         </li>
         <% end %>
       </ul>
